@@ -1,9 +1,5 @@
-
-
 n,m = list(map(int,input().split()))
- 
 s = []
- 
 def dfs():
     print(s)
     if len(s)==m:
@@ -18,3 +14,4 @@ def dfs():
 
 
 dfs()
+
