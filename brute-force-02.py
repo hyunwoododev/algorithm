@@ -17,12 +17,8 @@
 #             sys.exit(0)
 
 
-
-
 short_men = [int(input()) for _ in range(9)]
 seven_short_temp = []  # 7명을 뽑아 합을 조사할 새로운 리스트 선언
-
-print(short_men)
 
 def dfs(depth, start):
     if depth == 7:  # 만약 7번 재귀를 돌았다면
