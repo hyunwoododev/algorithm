@@ -1,21 +1,29 @@
-# import sys
-# n = 9
-# a = [int(input()) for _ in range(n)]
-# a.sort()
-# for i in range(0, n):
-#     for j in range(i+1, n):
-#         total = 0
-#         for k in range(0, n):
-#             if i == k or j == k:
-#                 continue
-#             total += a[k]
-#         if total == 100:
-#             for k in range(0, n):
-#                 if i == k or j == k:
-#                     continue
-#                 print(a[k])
-#             sys.exit(0)
+# 문제 :
+# 아홉 난쟁이 중에서 일곱 난쟁이의 키의 합이 100이 되는 일곱 난쟁이를 찾는 문제입니다. 
+# 모든 난쟁이의 키는 20이상 100이하의 자연수이며, 아홉 난쟁이의 키는 모두 다르며, 가능한 정답이 여러 가지인 경우에는 아무거나 출력한다.
 
+# 풀이 1. for문
+
+import sys
+n = 9
+a = [int(input()) for _ in range(n)]
+a.sort()
+for i in range(0, n):
+    for j in range(i+1, n):
+        total = 0
+        for k in range(0, n):
+            if i == k or j == k:
+                continue
+            total += a[k]
+        if total == 100:
+            for k in range(0, n):
+                if i == k or j == k:
+                    continue
+                print(a[k])
+            sys.exit(0)
+
+
+# 풀이 2. 재귀
 
 short_men = [int(input()) for _ in range(9)]
 seven_short_temp = []  # 7명을 뽑아 합을 조사할 새로운 리스트 선언
