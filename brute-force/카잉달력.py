@@ -1,11 +1,23 @@
-def solve(M, N, x, y):
-    while x <= M * N:
-        if (x - y) % N == 0:
-            return x
-        x += M
-    return -1
+# 백준 6064번은 '카잉 달력' 문제입니다.
 
-t = int(input())
-for _ in range(t):
+# 문제에서는 두 개의 수 M, N과 두 개의 타겟 수 x, y가 주어집니다. 카잉 달력에서는 M+1일이 되면 1일로, N+1일이 되면 1일로 변경됩니다. 또한, 카잉 달력의 1일은 항상 <1,1>입니다. 이때, <x,y>가 되는 날을 구하는 것이 목표입니다.
+
+# 문제를 풀기 위한 아이디어:
+
+# x를 기준으로 하여 M씩 증가시키면서 y와 같은 값이 나오는지 확인합니다.
+# 만약 <x, y>를 만족하는 해가 없다면 -1을 출력합니다.
+
+T = int(input())
+
+for _ in range(T):
     M, N, x, y = map(int, input().split())
-    print(solve(M, N, x, y))
+    x -= 1
+    y -= 1
+    k = x
+    while k < M * N:
+        if k % N == y:
+            print(k + 1)
+            break
+        k += M
+    else:
+        print(-1)
