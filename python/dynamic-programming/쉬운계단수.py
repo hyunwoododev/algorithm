@@ -10,6 +10,7 @@ N이 주어질 때, 길이가 N인 계단 수가 총 몇 개 있는지 구해보
 
 def count_stair_numbers(n):
     dp = [[0 for _ in range(10)] for _ in range(n + 1)]
+    # 길이가 1인 계단수는 1~9까지의 수밖에 없다.
     for i in range(1, 10):
         dp[1][i] = 1
 
