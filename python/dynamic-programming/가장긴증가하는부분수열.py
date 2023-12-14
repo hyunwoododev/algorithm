@@ -6,4 +6,20 @@
 첫째 줄에 수열 A의 크기 N (1 ≤ N ≤ 1,000)이 주어진다.
 둘째 줄에는 수열 A를 이루고 있는 Ai가 주어진다. (1 ≤ Ai ≤ 1,000)
 """
+import sys
+
+N = int(sys.stdin.readline())
+Arr = list(map(int, sys.stdin.readline().split()))
+dp = [1] * N
+
+for i in range(N):  # 배열 길이만큼돈다.
+    for j in range(i):  # 해당 배열 원소의 직전 원소까지 돈다.
+        if Arr[i] > Arr[j]:  # 만약 해당 원소가 전 원소보다 크다면
+            dp[i] = max(dp[i], dp[j] + 1)
+            # 전 원소에 저장되어 있는 최장수열길이에서 +1 값과 저장되어있는 수열길이값을 비교해서 큰값을 대입
+
+print(max(dp)) #dp 배열 중 가장 큰값
+
+
+
 
