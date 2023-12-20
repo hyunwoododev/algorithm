@@ -13,7 +13,7 @@ input = sys.stdin.readline
 
 N,M = map(int, input().split())
 s = []
-def dfs(start):
+def dfs():
     if M == len(s):
         print(' '.join(map(str,s)))
         return
@@ -21,6 +21,6 @@ def dfs(start):
     for i in range(1,N+1):
         if not i in s:
             s.append(i)
-            dfs(i + 1)
+            dfs()
             s.pop()
-dfs(1)
+dfs()
