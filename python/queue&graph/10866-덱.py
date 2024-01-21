@@ -11,15 +11,21 @@ size: 덱에 들어있는 정수의 개수를 출력한다.
 empty: 덱이 비어있으면 1을, 아니면 0을 출력한다.
 front: 덱의 가장 앞에 있는 정수를 출력한다. 만약 덱에 들어있는 정수가 없는 경우에는 -1을 출력한다.
 back: 덱의 가장 뒤에 있는 정수를 출력한다. 만약 덱에 들어있는 정수가 없는 경우에는 -1을 출력한다.
+
+https://velog.io/@kimhyo_0218/JavaScript-%EB%8D%B1Deque-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0
+
+이게 더 도움될듯.
 """
 
 import sys
 from collections import deque
+input = sys.stdin.readline
+
 deq = deque()
 N = int(input())
 
 for i in range(N):
-    line = sys.stdin.readline().rstrip().split() #rstrip은 오른쪽 공백을 제거함.
+    line = input().split() #rstrip은 오른쪽 공백을 제거함.
     if(line[0] == "push_front"):
         deq.appendleft(int(line[1]))
     elif (line[0] == "push_back"):

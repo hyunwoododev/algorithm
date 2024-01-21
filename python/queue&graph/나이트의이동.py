@@ -25,14 +25,14 @@ def bfs() :
 
     q = deque()
     """
-    이 코드에서 startX와 startY는 for문 내부에서 선언되었지만, for문 내부에서 bfs() 함수를 호출하기 때문에 bfs() 함수에서 접근할 수 있습니다.
-
+    이 코드에서 startX와 startY는 for문 내부에서 선언되었지만, 
+    for문 내부에서 bfs() 함수를 호출하기 때문에 bfs() 함수에서 접근할 수 있습니다.
     파이썬은 함수를 호출할 때 다음과 같은 과정을 거칩니다.
-
     함수의 인수를 저장하기 위한 새로운 지역 스코프(scope)를 생성합니다.
     함수의 코드를 실행합니다.
     함수의 코드가 모두 실행되면 지역 스코프를 제거합니다.
-    이 코드에서 bfs() 함수가 호출될 때, startX와 startY는 이미 for문 내부에서 값이 할당된 상태입니다. 따라서, bfs() 함수의 지역 스코프에서 startX와 startY를 사용할 수 있습니다.
+    이 코드에서 bfs() 함수가 호출될 때, startX와 startY는 이미 for문 내부에서 값이 할당된 상태입니다. 
+    따라서, bfs() 함수의 지역 스코프에서 startX와 startY를 사용할 수 있습니다.
     """
     q.append((startX, startY)) 
     while q :
