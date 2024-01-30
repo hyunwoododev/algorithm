@@ -11,10 +11,12 @@
 
 첫째 줄에 DFS를 수행한 결과를, 그 다음 줄에는 BFS를 수행한 결과를 출력한다. V부터 방문된 점을 순서대로 출력하면 된다.
 """
+import sys
+sys.setrecursionlimit(10**6)
 from collections import deque
 
 N, M, V = map(int, input().split())
-graph = [[] for _ in range(N+1)]#정점이 0부터가 아니라 1부터 시작되니깐 N+1로 설정해줘야함
+graph = [[] for _ in range(N+1)] #정점이 0부터가 아니라 1부터 시작되니깐 N+1로 설정해줘야함
 
 # 그래프를 인접 리스트 방식으로 표현하였습니다.
 for _ in range(M):
@@ -45,7 +47,8 @@ bfs_visited = [False] * (N + 1)
 def bfs(v):
     global bfs_visited
     global graph
-    queue=deque([v])
+    queue=deque()
+    queue.append(v)
     bfs_visited[v]=True
     while queue: # queue가 비어있지 않다면
         v=queue.popleft()

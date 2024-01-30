@@ -17,14 +17,16 @@ D는 E와 친구다.
 문제의 조건에 맞는 A, B, C, D, E가 존재하면 1을 없으면 0을 출력한다.
 """
 import sys
+sys.setrecursionlimit(10**6)
+input = sys.stdin.readline
 
 n, m = map(int, input().split())
-arr = [[] for i in range(n)]
+arr = [[] for _ in range(n)]
 visited = [False] * n
 
 # 그래프를 인접 리스트 방식으로 표현하였습니다.
 for _ in range(m):
-    a, b = map(int, sys.stdin.readline().rstrip().split())
+    a, b = map(int, input().split())
     arr[a].append(b)
     arr[b].append(a)
 

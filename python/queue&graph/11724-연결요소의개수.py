@@ -13,7 +13,7 @@ sys.setrecursionlimit(10**7)
 N, M = map(int, input().split())
 visited = [False] * (N+1)
 
-# graph 생성
+# 그래프를 인접 행렬 방식으로 표현하였습니다.
 graph = [[0 for _ in range(N+1)] for _ in range(N+1)]
 for _ in range(M):
     u, v = map(int, input().split())

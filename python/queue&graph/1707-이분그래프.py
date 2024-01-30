@@ -15,9 +15,8 @@ K개의 줄에 걸쳐 입력으로 주어진 그래프가 이분 그래프이면
 import sys
 sys.setrecursionlimit(10**6)
 input = sys.stdin.readline
+
 k = int(input())
-
-
 def DFS(start, visited, graph, group):
     visited[start] = group  # 현재 노드의 그룹 저장
     # 인접 노드 탐색
@@ -32,12 +31,12 @@ def DFS(start, visited, graph, group):
                 return False
     return True
 
-
 for _ in range(k):
     # graph 생성
     V, E = map(int, input().split())
     graph = [[] for _ in range(V+1)]
     visited = [0] * (V+1)
+    # 그래프를 인접 리스트 방식으로 표현하였습니다.
     for _ in range(E):
         a, b = map(int, input().split())
         graph[a].append(b)
@@ -46,6 +45,7 @@ for _ in range(k):
     for i in range(1, V+1):
         if visited[i] == 0:
             result = (DFS(i, visited, graph, 1))
-            if not result:
+            if not result: # 이게 정말 중요한 부분이다. 이분 그래프가 아니면 바로 넘어가야한다.
                 break
+            
     print("YES") if result else print("NO")
