@@ -19,7 +19,7 @@ dy = [1, -1, 0, 0]
 N = int(input())
 graph = []
 for i in range(N):
-    graph.append(list(map(int, input())))
+    graph.append(list(map(int, input().rstrip())))
 
 def bfs(a, b):
     global graph
