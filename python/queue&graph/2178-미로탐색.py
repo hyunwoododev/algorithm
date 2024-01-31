@@ -11,6 +11,9 @@ N×M크기의 배열로 표현되는 미로가 있다.
 """
 
 from collections import deque
+import sys
+sys.setrecursionlimit(10**6)
+input = sys.stdin.readline
 
 N, M = map(int, input().split())
 

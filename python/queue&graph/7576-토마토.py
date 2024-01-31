@@ -25,7 +25,7 @@ M은 상자의 가로 칸의 수, N은 상자의 세로 칸의 수를 나타낸�
 from collections import deque
 
 m, n = map(int, input().split())
-matrix = [list(map(int, input().split())) for _ in range(n)]
+graph = [list(map(int, input().split())) for _ in range(n)]
 queue = deque([])
 dx, dy = [-1, 1, 0, 0], [0, 0, -1, 1]
 res = 0
@@ -34,7 +34,7 @@ res = 0
 # n과 m을 사용하는걸 헷갈리지 말아야 함!
 for i in range(n):
     for j in range(m):
-        if matrix[i][j] == 1:
+        if graph[i][j] == 1:
             queue.append([i, j])
 
 def bfs():
@@ -43,14 +43,14 @@ def bfs():
         for i in range(4):
             nx, ny = dx[i] + x, dy[i] + y
             # 해당 좌표가 좌표 크기를 넘어가면 안되고, 그 좌표에 토마토가 익지 않은채로 있어야 함(0).
-            if 0 <= nx < n and 0 <= ny < m and matrix[nx][ny] == 0:
+            if 0 <= nx < n and 0 <= ny < m and graph[nx][ny] == 0:
                 # 익히고 1을 더해주면서 횟수를 세어주기
                 # 여기서 나온 제일 큰 값이 정답이 될 것임
-                matrix[nx][ny] = matrix[x][y] + 1
+                graph[nx][ny] = graph[x][y] + 1
                 queue.append([nx, ny])
 
 bfs()
-for i in matrix:
+for i in graph:
     for j in i:
         # 다 찾아봤는데 토마토를 익히지 못했다면 -1 출력
         if j == 0:

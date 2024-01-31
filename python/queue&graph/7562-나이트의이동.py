@@ -17,8 +17,11 @@ https://www.acmicpc.net/problem/7562
 
 from collections import deque
 import sys
+sys.setrecursionlimit(10**6)
 input = sys.stdin.readline
-t = int(input().rstrip())
+
+t = int(input())
+
 def bfs() :
     dx = [-1, 1, 2, 2, 1, -1, -2, -2]
     dy = [2, 2, 1, -1, -2, -2, -1, 1]
@@ -38,20 +41,20 @@ def bfs() :
     while q :
         x, y = q.popleft()
         if x == endX and y == endY :
-            return matrix[x][y] -1 
+            return graph[x][y] -1 
         for i in range(8) :
             nx = x + dx[i]
             ny = y + dy[i]
-            if 0<=nx<l and 0<=ny<l and matrix[nx][ny] == 0 :
-                matrix[nx][ny] = matrix[x][y] + 1
+            if 0<=nx<l and 0<=ny<l and graph[nx][ny] == 0 :
+                graph[nx][ny] = graph[x][y] + 1
                 q.append((nx,ny))
                 
             
         
 for _ in range(t) :
-    l = int(input().rstrip())
-    startX, startY = map(int, input().rstrip().split())
-    endX, endY = map(int, input().rstrip().split())
-    matrix = [[0]*l for _ in range(l)]
-    matrix[startX][startY] = 1
+    l = int(input())
+    startX, startY = map(int, input().split())
+    endX, endY = map(int, input().split())
+    graph = [[0]*l for _ in range(l)]
+    graph[startX][startY] = 1
     print(bfs())

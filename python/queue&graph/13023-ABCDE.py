@@ -15,27 +15,33 @@ D는 E와 친구다.
 (0 ≤ a, b ≤ N-1, a ≠ b) 같은 친구 관계가 두 번 이상 주어지는 경우는 없다.
 
 문제의 조건에 맞는 A, B, C, D, E가 존재하면 1을 없으면 0을 출력한다.
+
+현우 해석 :
+-> 간선이 주어진 경우
+-> 이어지는 이어지는 간선이 몇개인지를 세는 문제.
+-> 시작점이 정해져있지 않음.
+🤩 그렇다면, dfs+인접리스트 로 문제 해결가능
 """
 import sys
 sys.setrecursionlimit(10**6)
 input = sys.stdin.readline
 
-n, m = map(int, input().split())
-arr = [[] for _ in range(n)]
+n, m = map(int, input().split()) # 🤪틀렸던 부분
+graph = [[] for _ in range(n)] # 🤪틀렸던 부분
 visited = [False] * n
 
 # 그래프를 인접 리스트 방식으로 표현하였습니다.
 for _ in range(m):
-    a, b = map(int, input().split())
-    arr[a].append(b)
-    arr[b].append(a)
+    a, b = map(int, input().split()) # 🤪틀렸던 부분
+    graph[a].append(b)
+    graph[b].append(a)
 
 
 def dfs(idx, cnt):
     if cnt == 4:
         print(1)
         exit()
-    for i in arr[idx]:
+    for i in graph[idx]:
         if not visited[i]:
             visited[i] = True
             dfs(i, cnt + 1)
@@ -44,7 +50,7 @@ def dfs(idx, cnt):
 # 노드를 순서대로 방문하며 dfs를 수행합니다.
 for i in range(n):
     visited[i] = True
-    dfs(i, 0)
+    dfs(i, 0) # 🤪틀렸던 부분
     visited[i] = False
 
 print(0)

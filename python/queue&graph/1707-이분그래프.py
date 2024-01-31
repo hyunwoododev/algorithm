@@ -45,7 +45,7 @@ for _ in range(k):
     for i in range(1, V+1):
         if visited[i] == 0:
             result = (DFS(i, visited, graph, 1))
-            if not result: # 이게 정말 중요한 부분이다. 이분 그래프가 아니면 바로 넘어가야한다.
+            if not result: # 이게 정말 중요한 부분이다. 이분 그래프가 아니면 바로 종료해야한다.
                 break
             
     print("YES") if result else print("NO")
