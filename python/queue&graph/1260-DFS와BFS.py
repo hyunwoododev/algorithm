@@ -10,13 +10,19 @@
 어떤 두 정점 사이에 여러 개의 간선이 있을 수 있다. 입력으로 주어지는 간선은 양방향이다.
 
 첫째 줄에 DFS를 수행한 결과를, 그 다음 줄에는 BFS를 수행한 결과를 출력한다. V부터 방문된 점을 순서대로 출력하면 된다.
+
+현우 해석 :
+-> 간선이 주어진 경우에 해당.
+-> 이동을 하며, 정점을 프린트하는 문제.
+-> 시작점이 정해진 경우에 해당.
+-> index가 0이 아닌 1부터 시작하는 경우에 해당.😣😣😣😣
 """
 import sys
 sys.setrecursionlimit(10**6)
 from collections import deque
 
 N, M, V = map(int, input().split())
-graph = [[] for _ in range(N+1)] #정점이 0부터가 아니라 1부터 시작되니깐 N+1로 설정해줘야함
+graph = [[] for _ in range(N+1)] #정점이 0부터가 아니라 1부터 시작되니깐 N+1로 설정해줘야함 # 🤪틀렸던 부분
 
 # 그래프를 인접 리스트 방식으로 표현하였습니다.
 for _ in range(M):
@@ -28,35 +34,35 @@ for i in graph:
     i.sort()
 
 # dfs
-dfs_visited = [False] * (N + 1)
+dfs_visited = [False] * (N + 1) # 🤪틀렸던 부분
 def dfs(v):
     global dfs_visited
     global graph
 
-    dfs_visited[v] = True
-    print(v, end=' ')
+    dfs_visited[v] = True # 🤪틀렸던 부분
+    print(v, end=' ') # 🤪틀렸던 부분
 
     for i in graph[v]:
         if not dfs_visited[i]:
             dfs(i)
 dfs(V)
-print()
+print() # 🤪틀렸던 부분
 
 # bfs
-bfs_visited = [False] * (N + 1)
+bfs_visited = [False] * (N + 1) # 🤪틀렸던 부분
 def bfs(v):
     global bfs_visited
     global graph
     queue=deque()
     queue.append(v)
-    bfs_visited[v]=True
-    while queue: # queue가 비어있지 않다면
+    bfs_visited[v]=True # 🤪틀렸던 부분
+    while queue:
         v=queue.popleft()
         print(v,end=' ')
 
         for i in graph[v]:
             if not bfs_visited[i]:
                 queue.append(i)
-                bfs_visited[i]=True
+                bfs_visited[i]=True # 🤪틀렸던 부분
 
 bfs(V)
