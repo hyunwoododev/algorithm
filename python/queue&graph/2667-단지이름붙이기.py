@@ -9,6 +9,7 @@
 """
 import sys
 from collections import deque
+sys.setrecursionlimit(10**6) # 🤪틀렸던 부분,
 input = sys.stdin.readline
 
 # 인접 좌표 구성
