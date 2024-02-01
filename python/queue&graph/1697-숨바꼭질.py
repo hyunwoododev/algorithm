@@ -25,7 +25,7 @@ def bfs(cnt):
         if c == K:
             return visited[c]
         for i in (c-1, c+1, c*2):
-            if 0 <= i <= 100000 and not visited[i]:
+            if 0 <= i <= 100000 and not visited[i]: # 🤪틀렸던 부분, 조건을 정말정말 잘 체크하자 제발좀..
                 queue.append(i)
                 visited[i] = visited[c]+1
 
