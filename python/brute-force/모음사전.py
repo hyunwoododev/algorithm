@@ -11,4 +11,5 @@ def solution(word):
             answer.append(''.join(per))
 
     answer.sort()
-    return answer.index(word)+1 # 🤪틀렸던 부분
+    return answer.index(word)+1 # 🤪틀렸던 부분, 0부터 시작하므로 +1
+
