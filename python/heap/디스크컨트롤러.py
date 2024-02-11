@@ -1,28 +1,34 @@
+"""
+https://school.programmers.co.kr/learn/courses/30/lessons/42627
+"""
 import heapq
 
 def solution(jobs):
-    # 작업 요청부터 종료까지 걸린 시간 answer
-    # 현재 시간 now
-    # 처리한 일의 갯수 i
-    answer, now, i = 0, 0, 0
-    
-    
-    start = -1	#이전 작업 시작 완료 시간
+    answer = 0
+    completeTask = 0
+    now = 0
+    start = -1
+    copyJob = jobs[:]
     heap = []
     
-    while i < len(jobs):
-        for j in jobs:
-            #요청 시간이 이전작업의 시작시간 보다 크고, 현재 시간보다 작거나 같은 작업을 최소 힙에 삽입
-            if start < j[0] <= now:
-                heapq.heappush(heap, [j[1], j[0]])	#작업 걸리는 시간, 시작 시간으로 추가
-        
-        if len(heap) > 0:   #처리할 작업이 있는 경우 
-            cur = heapq.heappop(heap)
-            start = now		#시작 시간 현재 시간으로 갱신
-            now += cur[0]	#현재 시간에서 작업 소요 시간을 더해 현재 시간 갱신
-            answer += now - cur[1] #대기 시간 및 처리 시간 누적
-            i += 1 #일 하나 처리했으므로 +1
-            
-        else:   #처리할 작업이 없는 경우 현재 시간 1 증가
+    while len(copyJob) > completeTask:
+        # 지금 처리할 수 있는 job 가져오기 + 처리시간이 짧은순으로 우선순위  
+        # 여기서 추가된 모든 작업들은 아래에서 다 처리된다. 자주쓸것같으니 체크.       
+        for job in jobs:
+            if start < job[0] <= now:
+                heapq.heappush(heap,[job[1],job[0]])
+        # 처리할 job이 있다면, 첫번째 job을 처리
+        if len(heap) > 0:
+            jobToProcess = heapq.heappop(heap)
+            start = now # start는 가장 마지막에 처리된 job의 시작시간
+            # 처리한 시간만큼 now 증가
+            now += jobToProcess[0]
+            # 처리하는데 걸린 시간 추가(대기시간 부터)
+            answer += now - jobToProcess[1]
+            completeTask += 1
+
+        # 처리할 job이 없다면, 처리할 job이 있을때까지 1씩 증가
+        else:
             now += 1
+            
     return answer // len(jobs)
