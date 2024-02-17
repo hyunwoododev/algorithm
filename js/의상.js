@@ -1,6 +1,6 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/42578
 function solution(clothes) {
   const closet = {}; // 의상 종류별로 의상의 수를 저장할 객체
-
   // 의상을 순회하며 종류별로 의상의 수를 계산
   clothes.forEach(([item, type]) => {
     if (!closet[type]) {
