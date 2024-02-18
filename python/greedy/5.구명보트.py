@@ -1,9 +1,12 @@
 # https://school.programmers.co.kr/learn/courses/30/lessons/42885
+"""
+people	           limit	return
+[70, 50, 80, 50]	100	       3
+[70, 80, 50]	    100	       3
+"""
 def solution(people, limit):
     answer = 0
-    people=list(people)
     people.sort()
-    
     x=0
     y=len(people)-1
     
