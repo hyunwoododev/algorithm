@@ -1,10 +1,13 @@
 # Python String Helpers
 
+## References
+[Code Academy Cheat Sheet](https://www.codecademy.com/learn/learn-python-3/modules/learn-python3-strings/cheatsheet)
 
 ### String Validation
 - [`.islanum()`](https://www.w3schools.com/python/ref_string_isalnum.asp)
     - Check if all the characters in the text are alphanumeric
 
+### String 
 
 ### String Manipulation
 - `.strip()`
