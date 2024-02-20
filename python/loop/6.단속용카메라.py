@@ -1,4 +1,4 @@
-# https://school.programmers.co.kr/learn/courses/30/lessons/42884
+# # https://school.programmers.co.kr/learn/courses/30/lessons/42884
 
 def solution(routes):
     answer = 0
@@ -10,3 +10,4 @@ def solution(routes):
             answer += 1
             camera = route[1]
     return answer
+

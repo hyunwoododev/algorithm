@@ -17,11 +17,12 @@ for i in range(len(items)):
           multiTap[multiTap.index(0)] = items[i]
       else:
         # 멀티탭이 모두 차 있을 때의 처리 로직
+        # 현재 위치 이후로 멀티탭에 꼽혀 있으며, 다시 사용될 전기 용품들의 목록을 생성
         appear = []
-        # 현재 위치 이후로 다시 사용될 전기 용품들의 목록을 생성
         for j in range(i+1,len(items)):
             if items[j] in multiTap:
                 appear.append(items[j])
+        
         if(appear):
           # 중복을 제거하고 순서를 유지하기 위해 사전(dict)을 사용하여 리스트를 다시 생성
           result_list = list(dict.fromkeys(appear))
