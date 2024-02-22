@@ -5,30 +5,31 @@ import heapq
 
 def solution(jobs):
     answer = 0
-    completeTask = 0
-    now = 0
-    start = -1
-    copyJob = jobs[:]
+    #처리해야할 job의 갯수
+    jobCnt = len(jobs)
+    #처리된 job의 갯수
+    completedCnt = 0
     heap = []
+    now = 0
+    completedTime= -1
     
-    while len(copyJob) > completeTask:
-        # 지금 처리할 수 있는 job 가져오기 + 처리시간이 짧은순으로 우선순위  
-        # 여기서 추가된 모든 작업들은 아래에서 다 처리된다. 자주쓸것같으니 체크.       
-        for job in jobs:
-            if start < job[0] <= now:
-                heapq.heappush(heap,[job[1],job[0]])
-        # 처리할 job이 있다면, 첫번째 job을 처리
-        if len(heap) > 0:
-            jobToProcess = heapq.heappop(heap)
-            start = now # start는 가장 마지막에 처리된 job의 시작시간
-            # 처리한 시간만큼 now 증가
-            now += jobToProcess[0]
-            # 처리하는데 걸린 시간 추가(대기시간 부터)
-            answer += now - jobToProcess[1]
-            completeTask += 1
-
-        # 처리할 job이 없다면, 처리할 job이 있을때까지 1씩 증가
+    while jobCnt > completedCnt:
+        #처리해야할 job들을 추가하는 배열.
+        for start, processingTime in jobs:
+            if completedTime < start <= now:
+                heapq.heappush(heap,(processingTime, start))
+                
+        #처리해야할 job하나를 처리함.
+        if heap:
+            processingTime, start = heapq.heappop(heap)
+            #처리시작
+            completedTime = now
+            now += processingTime  
+            #처리완료
+            completedCnt += 1
+            answer += now - start
         else:
+            #아직 처리할 job이 없으면 now 이동
             now += 1
             
-    return answer // len(jobs)
+    return answer // jobCnt #나머지는 버려
