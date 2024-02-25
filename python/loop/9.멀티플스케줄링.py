@@ -19,9 +19,9 @@ for i in range(len(items)):
         # 멀티탭이 모두 차 있을 때의 처리 로직
         # 현재 위치 이후로 멀티탭에 꼽혀 있으며, 다시 사용될 전기 용품들의 목록을 생성
         appear = []
-        for j in range(i+1,len(items)):
-            if items[j] in multiTap:
-                appear.append(items[j])
+        for item in items[i+1:]:
+            if item in multiTap:
+                appear.append(item)
         
         if(appear):
           # 중복을 제거하고 순서를 유지하기 위해 사전(dict)을 사용하여 리스트를 다시 생성

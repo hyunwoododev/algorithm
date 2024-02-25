@@ -1,15 +1,17 @@
 # https://www.acmicpc.net/problem/1931
-
-N= int(input())
-time = []
+# solved!
+N = int(input())
+arr = []
 for _ in range(N):
-    time.append(list(map(int, input().split())))
-time.sort(key=lambda x:(x[1], x[0]))
-ans  = 0
-currentEnd = 0
-for s, e in time:
-    if s >= currentEnd:
-        ans += 1
-        currentEnd = e
-print(ans)
+    start,end = map(int,input().split())
+    arr.append((start,end))
+arr.sort(key=lambda x:[x[1],x[0]])
+now = 0
+cnt = 0
+for start, end in arr:
+    if now <= start:
+        cnt += 1 
+        now = end
+print(cnt)
+
 

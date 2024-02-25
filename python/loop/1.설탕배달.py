@@ -1,4 +1,6 @@
 # https://www.acmicpc.net/problem/2839
+# solved !
+
 sugar = int(input())
 bag = 0
 while sugar >= 0 :

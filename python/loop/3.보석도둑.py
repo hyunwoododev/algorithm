@@ -17,12 +17,10 @@ for _ in range(K):
 
 # 가방의 용량을 오름차순으로 정렬한다.    
 bags.sort()
-
 answer = 0
 tmp_jew = []
 for bag in bags:
-    # 각 가방에 대해서 반복한다. 가방은 용량이 작은 것부터 정렬되어 있다.
-    
+    # 각 가방에 대해서 반복한다. 가방은 용량이 작은 것부터 정렬되어 있다.   
     while jew and bag >= jew[0][0]:
         # 현재 가방의 용량보다 작거나 같은 보석이 있다면, 그 보석을 가능한 후보군에 추가한다.
         # jew 힙에서 가장 작은 무게의 보석을 확인하고, 가방에 담을 수 있으면 후보군(tmp_jew)에 추가한다.
@@ -35,4 +33,6 @@ for bag in bags:
     elif not jew:
         # 모든 보석이 고려되었으면 반복을 중단한다.
         break
-print(answer)
+
+
+

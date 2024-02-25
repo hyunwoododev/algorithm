@@ -1,4 +1,5 @@
 # https://school.programmers.co.kr/learn/courses/30/lessons/42885
+# solved!
 """
 people	           limit	return
 [70, 50, 80, 50]	100	       3

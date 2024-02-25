@@ -2,7 +2,6 @@
 import sys
 import heapq
 input = sys.stdin.readline
-
 n = int(input())
 arr = []
 for i in range(n):
@@ -24,4 +23,3 @@ for s,e in arr:
             heapq.heappush(room,e)
 
 print(len(room))
-        

@@ -1,5 +1,5 @@
-# # https://school.programmers.co.kr/learn/courses/30/lessons/42884
-
+# https://school.programmers.co.kr/learn/courses/30/lessons/42884
+# solved!
 def solution(routes):
     answer = 0
     routes.sort(key=lambda x: x[1]) # routes를 차량이 나간 지점 (진출) 기준으로 정렬

@@ -1,6 +1,5 @@
 """
 https://school.programmers.co.kr/learn/courses/30/lessons/49191
-플로이드와샬!
 """
 def solution(n, results):
     win = {x: set() for x in range(1, n+1)}

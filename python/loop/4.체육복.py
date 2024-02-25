@@ -1,7 +1,7 @@
 # https://school.programmers.co.kr/learn/courses/30/lessons/42862
 
 def solution(n, lost, reserve):
-    # set으로 변환하여 중복 제거
+    # set으로 변환하여 중복 제거(set끼리는 빼고 더할 수 있네.)
     reserve_set = set(reserve) - set(lost)
     lost_set = set(lost) - set(reserve)
     
