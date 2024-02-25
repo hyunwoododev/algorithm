@@ -19,6 +19,7 @@ def solution(genres, plays):
             dict2[g] = p
     
     # 가장 많이 플레이된 순으로 sorting
+    # {'classic': 1450, 'pop': 3100} -> [('pop', 3100), ('classic', 1450)]
     sorted_dict2 = sorted(dict2.items(), key = lambda x:x[1], reverse = True)
     
     # sorting된 장르에서 탑2의 인덱스를 삽입

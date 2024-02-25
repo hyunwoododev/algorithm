@@ -1,5 +1,5 @@
 # https://www.acmicpc.net/problem/15903
-
+# solved!
 import heapq
 
 n,m = map(int,input().split())
@@ -11,3 +11,12 @@ for _ in range(m):
 	heapq.heappush(n_list,a+b)
 	heapq.heappush(n_list,a+b)
 print(sum(n_list))
+
+
+
+
+    
+
+
+
+

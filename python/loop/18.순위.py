@@ -9,7 +9,7 @@ def solution(n, results):
         win[winner].add(loser)
         lose[loser].add(winner)
     
-    for i in range(1, n+1):
+    for i in range(1, n+1): # 핵심로직
         # i에게 진 선수들은 i를 이긴 모든 선수에게 짐
         for loser in lose[i]:
             win[loser].update(win[i])

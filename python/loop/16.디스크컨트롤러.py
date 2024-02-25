@@ -10,7 +10,7 @@ def solution(jobs):
     #처리된 job의 갯수
     completedCnt = 0
     heap = []
-    now = 0
+    now = 0  
     completedTime= -1
     
     while jobCnt > completedCnt:
@@ -23,7 +23,7 @@ def solution(jobs):
         if heap:
             processingTime, start = heapq.heappop(heap)
             #처리시작
-            completedTime = now
+            completedTime = now # 😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱
             now += processingTime  
             #처리완료
             completedCnt += 1
