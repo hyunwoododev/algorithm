@@ -3,6 +3,7 @@
 class Solution:
     def findMaxK(self, nums: List[int]) -> int:
         nums.sort()
+        # 제일작은게 + 이면 바로 -1리턴
         if nums[0] >= 0:
             return -1
         i = 0
@@ -11,10 +12,10 @@ class Solution:
             if nums[i] >= 0:
                 return -1
             
-            if nums[i]*-1 == nums[j]:
+            if nums[i] == -nums[j]:
                 return nums[j]
             
-            if nums[i]*-1 < nums[j]:
+            if nums[i] < -nums[j]:
                 j-=1
                 
             else:
