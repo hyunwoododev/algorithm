@@ -1,8 +1,14 @@
-# https://school.programmers.co.kr/learn/courses/30/lessons/12904
-
 def palindrome(s):
-    if len(s) < 2 or s == s[::-1]:
-        return True
+    left = 0
+    right = len(s)-1
+    
+    while left <= right:
+        if s[left] != s[right]:
+            return False
+        left += 1
+        right -= 1
+        
+    return True
 
 def solution(s):
 
@@ -18,4 +24,3 @@ def solution(s):
             
             if start + cur > len(s):
                 break
-

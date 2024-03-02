@@ -1,4 +1,5 @@
 # https://www.hackerrank.com/challenges/richie-rich/problem?isFullScreen=true
+
 l, k = input().split(' ')
 l = int(l)
 k = int(k)
