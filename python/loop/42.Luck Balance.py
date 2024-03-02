@@ -1,22 +1,22 @@
 # https://www.hackerrank.com/challenges/luck-balance/problem?isFullScreen=true
 
+import heapq
+
 N, K = map(int, input().strip().split())
-
-luck = 0
-important = []
-
+loseTotal = 0
+heap = []
 for i in range(N):
-    L, T = list(map(int, input().strip().split()))
-    if T == 0:
-        luck += L
+    amount, importance = map(int, input().split())
+    if importance == 0:
+        loseTotal += amount
     else:
-        important.append(L)
-        
-for i in sorted(important, reverse=True):
-    if K > 0:
-        luck += i
-        K -= 1
-    else:
-        luck -= i
+        heapq.heappush(heap, amount)
+         
+totalHeap = sum(heap)
+lenHeap = len(heap)
+i = 0
+while i < lenHeap - K:
+    totalHeap -= heapq.heappop(heap) * 2
+    i += 1
 
-print(luck)
+print(loseTotal+totalHeap)

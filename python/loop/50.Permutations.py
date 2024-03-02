@@ -1,24 +1,20 @@
 # https://leetcode.com/problems/permutations/description/
 
+
 class Solution:
-    def permute(self, l: List[int]) -> List[List[int]]:
-        def dfs(path, used, res):
-            if len(path) == len(l):
-                res.append(path[:]) # note [:] make a deep copy since otherwise we'd be append the same list over and over
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        def dfs(stack, res):
+            if len(stack) == len(nums):
+                res.append(stack[:])
                 return
 
-            for i, letter in enumerate(l):
-                # skip used letters
-                if used[i]:
-                    continue
-                # add letter to permutation, mark letter as used
-                path.append(letter)
-                used[i] = True
-                dfs(path, used, res)
-                # remove letter from permutation, mark letter as unused
-                path.pop()
-                used[i] = False
-            
-        res = []
-        dfs([], [False] * len(l), res)
-        return res
+            for i in nums:
+                if i not in stack:
+                    stack.append(i)
+                    dfs(stack,res)
+                    stack.pop()
+ 
+        response = []
+        dfs([],response) 
+        return response
+        
