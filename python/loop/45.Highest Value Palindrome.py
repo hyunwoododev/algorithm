@@ -1,32 +1,38 @@
 # https://www.hackerrank.com/challenges/richie-rich/problem?isFullScreen=true
+l, k = input().split(' ')
+l = int(l)
+k = int(k)
+n = list(input())
+midl = int(len(n)/2)
 
-n, k = map(int, input().split())
-s = list(input())
-f = 0
-for i in range(n // 2):
-    f += s[i] != s[n - 1 - i]
 
-if f > k:
+diff = 0
+for i in range(0,midl):
+    if (n[i] != n[l-1-i]):
+        diff += 1
+
+if (diff > k):
     print(-1)
-else:
-    for i in range(n // 2):
-        if s[i] == s[n - 1 - i] == '9':
-            continue
+    exit(0)
 
-        if k <= f + 1 and s[i] == s[n - 1 - i]:
-            continue
-            
-        if s[i] != s[n - 1 - i]:
-            f -= 1
-            
-        if k - f > 1:
-            k -= (s[i] != '9') + (s[n - 1 - i] != '9')
-            s[i] = s[n - 1 - i] = '9'
-        else:
-            s[i] = s[n - 1 - i] = max(s[i], s[n - 1 - i])
-            k -= 1
+more = k - diff
 
-    if n % 2 == 1 and k > 0:
-        s[n // 2] = '9'
+count = 0
+for i in range(0,midl):
+    if (n[i] == n[l-1-i]):
+        if (n[i] != '9' and more >= 2):
+            n[i], n[l-1-i] = '9', '9'
+            more -= 2
+        continue
 
-    print(''.join(s))
+    maxn = n[i] if (n[i] > n[l-1-i]) else n[l-1-i]
+    if (maxn != '9' and more >= 1):
+        more -= 1
+        maxn = '9'
+    n[i], n[l-1-i] = maxn, maxn
+
+if (more > 0):
+    n[midl] = '9'
+        
+print("".join(n))
+    
