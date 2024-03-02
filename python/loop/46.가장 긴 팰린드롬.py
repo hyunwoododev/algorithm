@@ -1,3 +1,6 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/12904
+
+
 def palindrome(s):
     left = 0
     right = len(s)-1
@@ -12,7 +15,7 @@ def palindrome(s):
 
 def solution(s):
 
-    if len(s) < 2 or s == s[::-1]:
+    if len(s) < 2 or palindrome(s):
         return len(s)
 
     for cur in range(len(s), 0, -1): # 즉, cur는 부분 문자열의 길이
