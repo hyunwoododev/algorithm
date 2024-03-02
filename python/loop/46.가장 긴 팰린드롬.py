@@ -20,10 +20,10 @@ def solution(s):
 
     for cur in range(len(s), 0, -1): # 즉, cur는 부분 문자열의 길이
         for start in range(len(s)): 
+            if start + cur > len(s):
+                break
+                
             currS = s[start: start + cur]
-
             if palindrome(currS):
                 return len(currS)
             
-            if start + cur > len(s):
-                break
