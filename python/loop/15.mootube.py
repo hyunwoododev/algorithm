@@ -2,6 +2,7 @@
 
 import sys
 from collections import deque
+
 input = sys.stdin.readline
 
 # N: 동영상의 수, Q: 쿼리의 수
@@ -25,7 +26,6 @@ def bfs(v, k):
     
     while queue:
         current = queue.popleft()
-        print(current)
         for next, usado in graph[current]:
             if not visited[next] and usado >= k:
                 visited[next] = True
