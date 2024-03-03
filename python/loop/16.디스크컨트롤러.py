@@ -23,7 +23,7 @@ def solution(jobs):
         if heap:
             processingTime, start = heapq.heappop(heap)
             #처리시작
-            completedTime = now # 😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱
+            completedTime = now
             now += processingTime  
             #처리완료
             completedCnt += 1
