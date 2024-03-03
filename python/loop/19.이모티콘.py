@@ -1,4 +1,4 @@
-# # https://www.acmicpc.net/problem/14226
+# https://www.acmicpc.net/problem/14226
 import sys
 from collections import deque
 input = sys.stdin.readline
@@ -29,6 +29,5 @@ def bfs():
                 visited[screen][clip] = visited[x_screen][x_clip] + 1
 
     return ans
-
 
 print(bfs())
