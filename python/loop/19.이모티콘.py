@@ -4,12 +4,12 @@ from collections import deque
 input = sys.stdin.readline
 
 s = int(input().strip())
-visited = [[0] * 1001 for _ in range(1001)]  # visited를 그래프로 만드는거(핵심로직임)😭😭😭😭😭
+visited = [[0] * 1001 for _ in range(1001)] 
 
 def bfs():
     q = deque()
     ans = 0
-    q.append((1, 0))  # (화면에 존재하는 이모티콘 개수,현재 클립보드에 저장된 이모티콘 개수)
+    q.append((1, 0)) 
     while q:
         x_screen, x_clip = q.popleft()
         if x_screen == s:
@@ -23,9 +23,8 @@ def bfs():
         ]
 
         for screen, clip in arr:
-            if 0 <= screen < 1001 and 0 <= clip < 1001 and not visited[screen][clip]:# 범위설정이 가장 중요함.😭😭😭😭😭
-                # 첫 번째 경우
-                q.append((screen, clip))  # 현재 화면에 존재하는 이모티콘 개수 만큼 클립보드에 저장
+            if 0 <= screen < 1001 and 0 <= clip < 1001 and not visited[screen][clip]:
+                q.append((screen, clip))  
                 visited[screen][clip] = visited[x_screen][x_clip] + 1
 
     return ans
