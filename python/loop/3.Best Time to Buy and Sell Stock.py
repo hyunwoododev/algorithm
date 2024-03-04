@@ -10,7 +10,7 @@ class Solution:
             currentProfit = prices[right] - prices[left]
             if prices[left] < prices[right]: 
                 max_profit = max(currentProfit, max_profit) 
-            # 산 가격이 판가격보다 작거나 같으면,
+            # 산 가격이 판가격보다 작거나 같으면, 산가격 업데이트
             else:
                 left = right
                 
