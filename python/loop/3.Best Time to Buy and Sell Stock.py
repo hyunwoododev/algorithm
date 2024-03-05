@@ -2,17 +2,18 @@
 
 class Solution:
     def maxProfit(self, prices):
-        left = 0 
-        right = 1 
         max_profit = 0
-        while right < len(prices): 
+        l = 0 
+        r = 1 
+        while r < len(prices): 
             # 현재 단계 손익 계산
-            currentProfit = prices[right] - prices[left]
-            if prices[left] < prices[right]: 
-                max_profit = max(currentProfit, max_profit) 
+            currentProfit = prices[r] - prices[l]
+            if prices[l] < prices[r]: 
+                max_profit = max(currentProfit, max_profit)
+                
             # 산 가격이 판가격보다 작거나 같으면, 산가격 업데이트
             else:
-                left = right
+                l = r
                 
-            right += 1
+            r += 1
         return max_profit

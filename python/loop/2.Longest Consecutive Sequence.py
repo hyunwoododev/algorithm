@@ -5,6 +5,7 @@ class Solution:
         maxNum = 1
         curr = 1
         nums.sort()
+        
         if len(nums) < 1:
             return 0
 
