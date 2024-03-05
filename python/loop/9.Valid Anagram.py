@@ -2,7 +2,6 @@
 
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        match = 0
         sCount = [0] * 26
         tCount = [0] * 26
         answer = True
