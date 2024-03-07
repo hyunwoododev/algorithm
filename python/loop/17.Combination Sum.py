@@ -6,7 +6,7 @@ class Solution:
 
         def dfs(i, curr, total):
             if total == target:
-                result.append(curr.copy())
+                result.append(curr[:])
                 return
             
             if i >= len(candidates) or total > target:
