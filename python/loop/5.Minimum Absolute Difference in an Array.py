@@ -1,15 +1,16 @@
 # https://www.hackerrank.com/challenges/minimum-absolute-difference-in-an-array/problem?isFullScreen=true
 
-n = int(input().strip()) 
-a = list(map(int, input().strip().split(' ')))
-
 # 두수의 abs란 무엇이가. -> 두 수의 차이를 보고싶은거다.
-a.sort()
+n = int(input())
+arr = list(map(int, input().split()))
 
-min_diff = a[n-1] - a[0]
+if n == 2:
+    print(abs(arr[0]-arr[1]))
+    exit()
 
+arr.sort()
+minRef = 1e9
 for i in range(1, n):
-    min_diff = min(a[i] - a[i-1], min_diff)
-    
-print(min_diff)
+    minRef = min(arr[i]-arr[i-1], minRef)
+print(minRef)
 

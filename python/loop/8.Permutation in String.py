@@ -12,7 +12,7 @@ class Solution:
             s1Count[ord(s1[i]) - ord("a")] += 1
             s2Count[ord(s2[i]) - ord("a")] += 1
 
-        matches = 0
+        matches = 0 # 전부 세줘야함.
         for i in range(26):
             matches += 1 if s1Count[i] == s2Count[i] else 0
 
