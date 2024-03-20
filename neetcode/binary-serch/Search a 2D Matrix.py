@@ -18,7 +18,7 @@ class Solution:
             else:
                 break
                 
-        if top > bot:
+        if not (top <= bot):
             return False  
         
         row = (top + bot) // 2
