@@ -2,17 +2,18 @@
 
 class Solution:
     def partition(self, s: str) -> List[List[str]]:
-        res, part = [], []
+        res, stack = [], []
 
         def dfs(i):
             if i >= len(s):
-                res.append(part.copy())
+                res.append(stack[:])
                 return
+            
             for j in range(i, len(s)):
                 if self.isPali(s, i, j):
-                    part.append(s[i : j + 1])
+                    stack.append(s[i : j + 1])
                     dfs(j + 1)
-                    part.pop()
+                    stack.pop()
 
         dfs(0)
         return res

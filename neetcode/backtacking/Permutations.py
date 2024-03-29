@@ -3,17 +3,17 @@
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         res = []
+        stack = [] 
 
-        # base case
-        if len(nums) == 1:
-            return [nums[:]]  # nums[:] is a deep copy
-
-        for i in range(len(nums)):
-            n = nums.pop(0)
-            perms = self.permute(nums)
-
-            for perm in perms:
-                perm.append(n)
-            res.extend(perms)
-            nums.append(n)
+        def dfs():
+            if len(stack) == len(nums):
+                res.append(stack[:])
+                return
+            
+            for i in range(len(nums)):
+                if nums[i] not in stack:
+                    stack.append(nums[i])
+                    dfs()
+                    stack.pop()
+        dfs()
         return res

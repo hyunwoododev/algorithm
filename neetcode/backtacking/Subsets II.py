@@ -1,26 +1,26 @@
 # https://leetcode.com/problems/subsets-ii/
 
 class Solution:
-    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
-        candidates.sort()  # 후보 정렬
-        res = []  # 결과를 저장할 리스트
+    def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
+        nums.sort()
+        
+        res = []
+        stack = []
 
-        def dfs(idx, stack, current_sum):
-            if current_sum == target:  # 타겟 값에 도달했으면 결과에 추가
+        def dfs(idx):
+
+            if idx == len(nums):
                 res.append(stack[:])
                 return
-            
-            for i in range(idx, len(candidates)):
-                # 중복된 요소 건너뛰기
-                if i > idx and candidates[i] == candidates[i-1]:
-                    continue
-                
-                # 현재 합에 후보를 추가했을 때 타겟 값을 초과하면 더 이상 탐색하지 않음
-                if current_sum + candidates[i] > target:
-                    break
-                
-                # 다음 요소로 DFS 수행
-                dfs(i+1, stack + [candidates[i]], current_sum + candidates[i])
 
-        dfs(0, [], 0)
+            # 고르는 경우 
+            stack.append(nums[idx])
+            dfs(idx+1)
+            stack.pop()
+            
+            # 고르지 않는경우 
+            while idx+1 < len(nums) and nums[idx] == nums[idx+1]:
+                idx += 1
+            dfs(idx + 1)
+        dfs(0)
         return res
