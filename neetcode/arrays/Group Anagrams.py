@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/group-anagrams/description/
+# ⭐️⭐️⭐️
 
 from collections import defaultdict
 
@@ -10,4 +11,10 @@ class Solution:
             for c in s:
                 count[ord(c) - ord("a")] += 1
             ans[tuple(count)].append(s)
+
+        # defaultdict(<class 'list'>, 
+        # {(1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0): ['eat', 'tea', 'ate'], 
+        # (1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0): ['tan', 'nat'], 
+        # (1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0): ['bat']})
+            
         return ans.values() # 쩐다.

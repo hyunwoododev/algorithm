@@ -1,4 +1,6 @@
 # https://leetcode.com/problems/valid-sudoku/
+# ⭐️⭐️⭐️
+
 from collections import defaultdict
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
