@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/3sum/description/
+# ⭐️
 
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
@@ -27,7 +28,7 @@ class Solution:
                     l += 1
                     r -= 1
 
-                    # 중복방지
+                    # 중복방지! ⭐️
                     while nums[l] == nums[l - 1] and l < r:
                         l += 1
                         
