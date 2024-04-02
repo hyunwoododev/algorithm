@@ -1,12 +1,11 @@
 # https://leetcode.com/problems/maximum-subarray/description/
+# Kadane’s Algorithm
 
 class Solution:
-    def maxSubArray(self, nums: List[int]) -> int:
-        res = nums[0]
-        total = 0
-        for n in nums:
-            total += n
-            res = max(res, total)
-            if total < 0:
-                total = 0
-        return res
+    def maxSubArray(self, nums: list[int]) -> int:
+        cur = curMax = nums[0]
+        for num in nums[1:]:
+            cur = max(num, cur + num)
+            curMax = max(curMax, cur)
+        
+        return curMax
