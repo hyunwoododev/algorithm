@@ -39,3 +39,5 @@ class Solution:
         l, r = res
         # 결과 반환
         return s[l : r + 1] if resLen != float("infinity") else ""
+    
+    
