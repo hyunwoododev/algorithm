@@ -32,6 +32,7 @@ class Solution:
                 col.remove(c)
                 posDiag.remove(r + c)
                 negDiag.remove(r - c)
+                
                 board[r][c] = "."
 
         backtrack(0)  # 백트래킹 시작

@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/letter-combinations-of-a-phone-number/
+# 시간 복잡도: O(n * 4^n)
 
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
