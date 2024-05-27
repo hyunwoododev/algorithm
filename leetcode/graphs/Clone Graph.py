@@ -11,7 +11,6 @@ class Node:
 class Solution:
     def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
         oldToNew = {}
-
         def dfs(node):
             if node in oldToNew:
                 return oldToNew[node]
