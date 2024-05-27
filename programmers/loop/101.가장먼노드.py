@@ -2,29 +2,23 @@
 https://school.programmers.co.kr/learn/courses/30/lessons/49189
 """
 from collections import deque
-
 def solution(n, edge):
-    graph =[[0] for _ in range(n+1)]
-    visited = [False]*(n+1)
-
-    for i in edge:
-        a,b = i
-        graph[a].append(b)
-        graph[b].append(a)
-
+    graph = [[] for i in range(len(edge)+1)]
+    for n1,n2 in edge:
+        graph[n1].append(n2)
+        graph[n2].append(n1)
+        
+    visited = [-1] * len(edge)
     def bfs():
         q = deque()
-        q.append(graph[1])
-        visited[1] = True
+        q.append(1)
+        visited[1] = 0
         while q:
-            arr = q.popleft()
-            count = arr[0]
-            for i in arr[1:]:
-                if not visited[i]:
-                    visited[i] = True
-                    graph[i][0] = count+1
-                    q.append(graph[i])
+            idx = q.popleft()
+            for i in graph[idx]:
+                if visited[i] == -1:
+                    q.append(i)
+                    visited[i] = visited[idx] + 1
     bfs()
-    newArr = list(map(lambda x:x[0], graph))
-    maxNum = max(newArr)
-    return newArr.count(maxNum)
+    maxValue = max(visited)
+    return visited.count(maxValue)
