@@ -8,6 +8,7 @@ class UnionFind:
     def getParent(self, node):
         if self.parent[node] == node:
             return node
+        
         self.parent[node] = self.getParent(self.parent[node])
         return self.parent[node]
 
@@ -24,14 +25,14 @@ class UnionFind:
                 self.parent[parent2] = parent1
                 self.rank[parent1] += 1
 
-    def find(self, node1, node2):
+    def check(self, node1, node2):
         return self.getParent(node1) == self.getParent(node2)
 
 class Solution:
     def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
         uf = UnionFind(len(edges) + 1)
         for a, b in edges:
-            if uf.find(a, b):
+            if uf.check(a, b):
                 return [a, b]
             else:
                 uf.union(a, b)
