@@ -13,6 +13,8 @@ class Solution:
                 stack.append(stack.pop() * stack.pop())
             elif c == "/":
                 a, b = stack.pop(), stack.pop()
+                # int는 소수점만 날림 -3.5 면 -3
+                # //는 그냥 내림 -3.5면 -4
                 stack.append(int(float(b) / a))
             else:
                 stack.append(int(c))
