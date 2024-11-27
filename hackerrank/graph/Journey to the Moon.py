@@ -52,5 +52,7 @@ def journeyToMoon(n, astronaut):
     # 같은 국가에 속한 페어의 수를 계산합니다.
     same_country_pairs = sum(size * (size - 1) // 2 for size in country_sizes)
     
+
+    print(total_pairs, same_country_pairs)
     # 다른 국가에 속한 페어의 수를 반환합니다.
     return total_pairs - same_country_pairs
