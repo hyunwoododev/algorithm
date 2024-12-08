@@ -41,6 +41,7 @@ def journeyToMoon(n, astronaut):
                     size[root_u] += size[root_v]
                     size[root_v] = 0
                 else:
+                    
                     size[root_v] += size[root_u]
                     size[root_u] = 0
     
