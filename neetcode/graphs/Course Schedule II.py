@@ -1,6 +1,7 @@
 # https://leetcode.com/problems/course-schedule-ii/description/
 from collections import deque
 
+
 class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
         output = []
@@ -9,12 +10,12 @@ class Solution:
         for c, p in prerequisites:
             graph[p].append(c)
             indegree[c] += 1
-        
+
         q = deque()
         for i in range(numCourses):
             if indegree[i] == 0:
                 q.append(i)
-            
+
         while q:
             course = q.popleft()
             output.append(course)

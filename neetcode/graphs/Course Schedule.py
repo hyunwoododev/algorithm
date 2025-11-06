@@ -2,6 +2,7 @@
 
 from collections import deque
 
+
 # bfs
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
@@ -26,6 +27,7 @@ class Solution:
 
         return sum(indegree) == 0
 
+
 # dfs
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
@@ -41,7 +43,7 @@ class Solution:
         def dfs(crs):
             if crs in visiting:
                 return False
-            
+
             if preMap[crs] == []:
                 return True
 
@@ -58,5 +60,5 @@ class Solution:
         for c in range(numCourses):
             if not dfs(c):
                 return False
-            
+
         return True

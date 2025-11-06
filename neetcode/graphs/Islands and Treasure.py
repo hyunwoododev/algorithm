@@ -3,6 +3,7 @@
 from collections import deque
 from typing import List
 
+
 class Solution:
     def islandsAndTreasure(self, grid: List[List[int]]):
         ROWS, COLS = len(grid), len(grid[0])  # 격자의 행과 열의 크기를 구합니다.
@@ -13,8 +14,10 @@ class Solution:
         def addRooms(r, c):
             # 유효하지 않은 위치를 확인합니다 (범위를 벗어나거나 이미 방문했거나 물인 경우)
             if (
-                r < 0 or c < 0  # 범위를 벗어난 경우
-                or r >= ROWS or c >= COLS  # 범위를 벗어난 경우
+                r < 0
+                or c < 0  # 범위를 벗어난 경우
+                or r >= ROWS
+                or c >= COLS  # 범위를 벗어난 경우
                 or (r, c) in visit  # 이미 방문한 경우
                 or grid[r][c] == -1  # 물인 경우
             ):
