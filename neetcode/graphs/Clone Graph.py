@@ -8,11 +8,9 @@ class Node:
         self.neighbors = neighbors if neighbors is not None else []
 """
 
-
 class Solution:
-    def cloneGraph(self, node: Optional["Node"]) -> Optional["Node"]:
+    def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
         oldToNew = {}
-
         def dfs(node):
             if node in oldToNew:
                 return oldToNew[node]
