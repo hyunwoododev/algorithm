@@ -3,12 +3,12 @@ package arrayshashing
 // https://neetcode.io/problems/duplicate-integer?list=neetcode150
 
 func hasDuplicate(nums []int) bool {
-	seen := make(map[int]bool)
+	set := make(map[int]struct{})
 	for _, num := range nums {
-		if seen[num] {
+		if _, found := set[num]; found {
 			return true
 		}
-		seen[num] = true
+		set[num] = struct{}{}
 	}
 	return false
 }
