@@ -1,26 +1,33 @@
 // https://neetcode.io/problems/longest-consecutive-sequence?list=neetcode150
 
 func longestConsecutive(nums []int) int {
-    numSet := make(map[int]struct{})
-    for _, num := range nums {
-        numSet[num] = struct{}{}
-    }
+	if len(nums) == 0 {
+		return 0
+	}
 
-    longest := 0
-    for num := range numSet {
-        if _, found := numSet[num-1]; !found {
-            length := 1
-            for {
-                if _, exists := numSet[num+length]; exists {
-                    length++
-                } else {
-                    break
-                }
-            }
-            if length > longest {
-                longest = length
-            }
-        }
-    }
-    return longest
+	// use map[int]struct{} for O(1) membership check with zero allocation
+	set := make(map[int]struct{}, len(nums))
+	for _, n := range nums {
+		set[n] = struct{}{}
+	}
+
+	longest := 0
+	for n := range set {
+		// only start counting from sequence "heads"
+		if _, hasPrev := set[n-1]; hasPrev {
+			continue
+		}
+
+		length := 1
+		for next := n + 1; ; next++ {
+			if _, ok := set[next]; !ok {
+				break
+			}
+			length++
+		}
+		if length > longest {
+			longest = length
+		}
+	}
+	return longest
 }
