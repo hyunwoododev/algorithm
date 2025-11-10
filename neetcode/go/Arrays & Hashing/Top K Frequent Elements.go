@@ -2,26 +2,25 @@
 
 package arrayshashing
 
-import "sort"
-
 func topKFrequent(nums []int, k int) []int {
 	count := make(map[int]int)
+	freq := make([][]int, len(nums)+1)
+
 	for _, num := range nums {
 		count[num]++
 	}
-
-	arr := make([][2]int, 0, len(count))
 	for num, cnt := range count {
-		arr = append(arr, [2]int{cnt, num})
+		freq[cnt] = append(freq[cnt], num)
 	}
 
-	sort.Slice(arr, func(i, j int) bool {
-		return arr[i][0] > arr[j][0]
-	})
-
-	res := make([]int, k)
-	for i := 0; i < k; i++ {
-		res[i] = arr[i][1]
+	res := []int{}
+	for i := len(freq) - 1; i > 0; i-- {
+		for _, num := range freq[i] {
+			res = append(res, num)
+			if len(res) == k {
+				return res
+			}
+		}
 	}
 	return res
 }
