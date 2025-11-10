@@ -1,5 +1,12 @@
 // https://neetcode.io/problems/string-encode-and-decode?list=neetcode150
 
+package arrayshashing
+
+import (
+	"strconv"
+	"strings"
+)
+
 type Solution struct{}
 
 func (s *Solution) Encode(strs []string) string {

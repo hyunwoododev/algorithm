@@ -1,3 +1,5 @@
+package arrayshashing
+
 // https://neetcode.io/problems/duplicate-integer?list=neetcode150
 
 func hasDuplicate(nums []int) bool {

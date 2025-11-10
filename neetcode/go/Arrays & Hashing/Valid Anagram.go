@@ -1,4 +1,5 @@
 // https://neetcode.io/problems/is-anagram?list=neetcode150
+package arrayshashing
 
 func isAnagram(s string, t string) bool {
 	if len(s) != len(t) {
