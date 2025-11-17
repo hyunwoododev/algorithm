@@ -3,22 +3,30 @@
 package arrayshashing
 
 func productExceptSelf(nums []int) []int {
-	n := len(nums)
-	res := make([]int, n)
+    leftRes := make([]int, len(nums))
+    rightRes := make([]int, len(nums))
 
-	// 1) 왼쪽(접두) 곱 채우기: res[i] = nums[0..i-1]의 곱
-	prefix := 1
-	for i := 0; i < n; i++ {
-		res[i] = prefix
-		prefix *= nums[i]
-	}
+    for i := 0; i < len(nums); i++ {
+        if i == 0 {
+            leftRes[i] = 1
+        } else {
+            leftRes[i] = nums[i-1] * leftRes[i-1]
+        }
+    }
 
-	// 2) 오른쪽(접미) 곱 곱해주기: res[i] *= nums[i+1..n-1]의 곱
-	suffix := 1
-	for i := n - 1; i >= 0; i-- {
-		res[i] *= suffix
-		suffix *= nums[i]
-	}
+    for j := len(nums)-1; j >= 0; j-- {
+        if j == len(nums)-1 {
+            rightRes[j] = 1
+        } else {
+            rightRes[j] = nums[j+1] * rightRes[j+1]
+        }
+    }
 
-	return res
+    // 🔥 여기만 수정하면 됨
+    res := make([]int, len(nums))
+    for i := 0; i < len(nums); i++ {
+        res[i] = leftRes[i] * rightRes[i]
+    }
+
+    return res
 }
